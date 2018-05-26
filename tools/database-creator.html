@@ -1,0 +1,33 @@
+<script>
+
+var database=[
+	// One way
+	{"from":"WHY",only:1,"to":"BECAUSE"},
+	{"from":"WHO",only:1,"to":""},
+	{"from":"WHAT",only:1,"to":""},
+	// Two ways
+	{"from":"I",both:1,"to":"YOU"},
+	{"from":"M",both:1,"to":"RE"},
+	{"from":"ME",both:1,"to":"YOU"},
+	{"from":"MYSELF",both:1,"to":"YOURSELF"},
+	{"from":"MINE",both:1,"to":"YOURS"},
+	{"from":"AM",both:1,"to":"ARE"},
+	{"from":"MY",both:1,"to":"YOUR"},
+];
+
+var sym="abc";
+
+var out="";
+for (var i=0;i<database.length;i++){
+	out+=sym[0]+database[i].from;
+	if (database[i].only) out+=sym[2]; else out+=sym[1];	
+	out+=database[i].to;
+}
+out+=sym[0];
+
+
+console.log("m=eval(`"+"/"+sym[0]+"(${e}["+sym[1]+sym[2]+"]([^"+sym[0]+"]*)|([^"+sym[0]+sym[1]+"]+)"+sym[1]+"${e})"+sym[0]+"/`).exec(btoa`"+atob(out)+"`)");
+console.log("m=eval(`"+"/"+sym[0]+"(${e}["+sym[1]+sym[2]+"]([^"+sym[0]+"]*)|([^"+sym[0]+sym[1]+"]+)"+sym[1]+"${e})"+sym[0]+"/`).exec`"+out+"`");
+console.log((atob(out).match(/`/)||atob(out).match(/\r/)||atob(out).match(/\n/))?"Not usable...":"Usable!");
+
+</script>
