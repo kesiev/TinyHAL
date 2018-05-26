@@ -98,4 +98,3 @@ You can have a nice chat with TinyHAL different flavours:
 *Notes: personality data are from the original
 [MegaHAL](https://megahal.alioth.debian.org/) project. The MegaHAL
 personality file loader is not included in TinyHAL code.*
-/
